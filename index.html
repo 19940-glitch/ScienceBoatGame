@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Science Boat Racing ป.6</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="logo">🚤</div>
+        <h1>Science Boat Racing</h1>
+        <p>ภารกิจเจ้าแห่งสายน้ำ ตะลุยวิทย์ 100 ข้อ</p>
+        
+        <input type="text" id="player-name" placeholder="ชื่อกัปตันเรือ" required>
+        <input type="email" id="player-email" placeholder="อีเมล (สำหรับบันทึกผล)" required>
+        <button onclick="startGame()" class="start-btn">⚓ ถอนสมอ ออกเรือ! 🌊</button>
+        
+        <div id="leaderboard-box">
+            <h3>🏆 5 อันดับกัปตันมือโปร</h3>
+            <ul id="top-players-list">กำลังโหลด...</ul>
+        </div>
+    </div>
+
+    <div id="game-container" style="display:none;">
+        <div id="ui-header">
+            <div class="left-stats">
+                <div class="stat-box">⭐ คะแนน: <span id="score-val">0</span></div>
+                <div class="stat-box">🚩 ด่าน: <span id="level-val">1</span></div>
+            </div>
+            
+            <div class="timer-box">⏳ <span id="time-val">10</span></div>
+            
+            <button onclick="quitGame()" class="exit-btn">❌ ออกเกม</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="question-overlay" style="display:none;">
+            <div class="q-card">
+                <div class="q-header">คำถามข้อที่ <span id="q-number">1</span></div>
+                <h2 id="q-text">Loading...</h2>
+                <div id="options-display" class="options-grid"></div>
+            </div>
+        </div>
+        
+        <div id="mobile-hint">👆 ลากเรือไปซ้าย-ขวา เพื่อเลือกคำตอบ</div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
