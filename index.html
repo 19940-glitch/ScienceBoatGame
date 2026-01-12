@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Science Boat Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="logo">🚤</div>
+        <h1>Science Boat</h1>
+        <p>เจ้าแห่งสายน้ำตะลุยวิทย์</p>
+        
+        <input type="text" id="player-name" placeholder="กัปตันชื่ออะไร?" required>
+        <input type="email" id="player-email" placeholder="อีเมล" required>
+        <button onclick="startGame()" class="start-btn">⚓ ถอนสมอ ออกเรือ!</button>
+        
+        <div id="leaderboard-box">
+            <h3>🏆 5 กัปตันคะแนนสูงสุด</h3>
+            <ul id="top-players-list">Loading...</ul>
+        </div>
+    </div>
+
+    <div id="game-container" style="display:none;">
+        <div id="ui-header">
+            <div class="stat-box">⭐ คะแนน: <span id="score-val">0</span></div>
+            <div class="timer-box">⏳ <span id="time-val">10</span></div>
+            <div class="stat-box">🌊 ด่าน: <span id="level-val">1</span></div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="question-overlay" style="display:none;">
+            <div class="q-card">
+                <h2 id="q-text">Loading...</h2>
+                <div id="options-display"></div>
+            </div>
+        </div>
+        
+        <div id="mobile-hint">👆 ลากเรือไปซ้าย-ขวา เพื่อเลือกคำตอบ</div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
